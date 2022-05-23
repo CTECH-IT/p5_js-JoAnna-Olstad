@@ -1,12 +1,26 @@
 function setup() {
-    createCanvas(1000, windowWidth);
-  
+  createCanvas(1000, windowWidth);
+  // create sliders
+rSlider = createSlider(255, 255, 255);
+rSlider.position(300, 20);
+gSlider = createSlider(255, 255, 255);
+gSlider.position(300, 50);
+bSlider = createSlider(255, 255, 255);
+bSlider.position(300, 80);
   }
   
   function draw() {
     background(500);
-    
-    //Red Stripes
+
+    const r = rSlider.value();
+    const g = gSlider.value();
+    const b = bSlider.value();
+    background(r, g, b);
+    text(rSlider.x * 2 + rSlider.width, 35);
+    text(gSlider.x * 2 + gSlider.width, 65);
+    text(bSlider.x * 2 + bSlider.width, 95);
+
+    //red stripes
     rect(0, 900,windowWidth, 50);
     fill(255,0,0)
     rect(0, 700,windowWidth, 50);
@@ -28,11 +42,11 @@ function setup() {
     rect(250, 100,windowWidth*.68, 50 );
     fill(255,0,0)
     
-    //Blue Box
+    //blue box
     fill(9,0,255)
     rect(0,0,533,300)
   
-    //Yellow "Star"
+    //gray star
     fill(128,128,128)
     //Row 1
     rect(0,0,41,33)
@@ -105,8 +119,12 @@ function setup() {
     
     //Text
       textSize(50);
+      textFont('Georgia');
     fill(10,10,10);
     textWrap(WORD);
     text('"I pledge allegiance to the Flag of the United States of America, and to the Republic for which it stands, one Nation under God, indivisible, with liberty and justice for all."',100, 300,700);
+ 
+
   }
+  
   
